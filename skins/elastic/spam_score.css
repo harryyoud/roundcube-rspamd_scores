@@ -1,0 +1,40 @@
+.spam_breakdown_score.low, .spam_total_score.low {
+    background-color: #28a745;
+    color: white;
+}
+
+.spam_breakdown_score.medium, .spam_total_score.medium {
+    background-color: #ffc107;
+    color: black;
+}
+
+.spam_breakdown_score.high, .spam_total_score.high {
+    background-color: #dc3545;
+    color: white;
+}
+
+.spam_breakdown_score {
+    font-size: 90%;
+}
+
+.spam_messagelist_total_score {
+    float: right;
+}
+
+#rcmrowrspamd_scores .section::before {
+    content: '\f7e4';
+}
+
+.messagelist td.subject span.subject {
+    display: inline-flex;
+}
+
+.messagelist td.subject a {
+    flex: 1;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.messagelist td.subject .spam_score {
+    margin-left: 4px;
+}

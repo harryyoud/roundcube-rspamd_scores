@@ -1,0 +1,18 @@
+<?php
+// Header to extract result from
+$config['rspamd_scores_header'] = 'X-Spamd-Result';
+
+// Lower limit of medium (amber) badge
+$config['rspamd_scores_medium_limit'] = 0;
+
+// Lower limit of high (red) badge
+$config['rspamd_scores_high_limit'] = 5;
+
+// Show low badge (green) in mail list view
+$config['rspamd_scores_list_show_low'] = true;
+
+// Show medium badge (amber) in mail list view
+$config['rspamd_scores_list_show_medium'] = true;
+
+// Show high badge (red) in mail list view
+$config['rspamd_scores_list_show_high'] = true;
