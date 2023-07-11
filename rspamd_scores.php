@@ -15,6 +15,7 @@ class rspamd_scores extends rcube_plugin {
     const RULE_DESCRIPTIONS = __DIR__.'/score_symbols.json';
 
     private static $raw_header;
+    private \rcmail $rc;
 
     function init() {
         $this->rc = rcmail::get_instance();
@@ -186,6 +187,9 @@ class rspamd_scores extends rcube_plugin {
 
     function message_list(array $args) {
         foreach($args['messages'] as $message) {
+            if (!array_key_exists('x-spamd-result', $message->others)) {
+                continue;
+            }
             $total = $this->parse_header_total_only($message->others['x-spamd-result'])['total']['total_score'];
             $message->list_flags['extra_flags']['spam_score'] = [
                 'score' => $total,

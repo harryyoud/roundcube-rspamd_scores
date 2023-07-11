@@ -1,7 +1,6 @@
 const rcm_rspamd_scores_breakdown = () => {
   var props = {_uid: rcmail.env.uid, _mbox: rcmail.env.mailbox, _framed: 1},
   dialog = $('<iframe>').attr({id: 'spamscoreframe', src: rcmail.url('plugin.rspamd_scores.show_breakdown', props)});
-  console.log(rcmail.env.uid)
 
   rcmail.simple_dialog(dialog, "Spam Score Breakdown", null, {
     cancel_button: 'close',
@@ -15,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     $('#rspamd_total_score_chip').on('click', () => rcmail.command('plugin.rspamd_scores.open_breakdown_dialog'));
   });
   rcmail.addEventListener('insertrow', function(evt) {
-    if (evt.row.flags.spam_score.score === null)
+    if (evt?.row?.flags?.spam_score?.score == null)
       return
     if (!rcmail.env[`rspamd_scores_list_show_${evt.row.flags.spam_score.level}`])
       return
