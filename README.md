@@ -3,5 +3,5 @@ Displays rspamd score breakdown in roundcube
 
 ## Creating score mapping
 ```
-$ rspamadm configdump -dj | jq '[.symbols | to_entries[] | .value = .value.description] | sort | from_entries'
+$ rspamadm configdump --symbol-details --json | jq --sort-keys '.symbols | with_entries({key: .key, value: .value.description})'
 ```
